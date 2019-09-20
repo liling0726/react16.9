@@ -343,6 +343,8 @@ function mapChildren(children, func, context) {
   const result = [];
   mapIntoWithKeyPrefixInternal(children, result, null, func, context);
   return result;
+
+
 }
 
 /**

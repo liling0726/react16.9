@@ -134,19 +134,24 @@ export type Fiber = {|
   // minimize the number of objects created during the initial render.
 
   // Tag identifying the type of fiber.
+  // 标记不同类型的组件
   tag: WorkTag,
 
   // Unique identifier of this child.
+  // createElement里面的key
   key: null | string,
 
   // The value of element.type which is used to preserve the identity during
   // reconciliation of this child.
+  // ReatctElement.type
   elementType: any,
 
   // The resolved function/class/ associated with this fiber.
+  // 异步组件resolved之后返回的内容，一般是function/class
   type: any,
 
   // The local state associated with this fiber.
+  // 跟当前 Fiber相关的本地状态（浏览器中就是DOM节点）
   stateNode: any,
 
   // Conceptual aliases
@@ -159,10 +164,15 @@ export type Fiber = {|
   // This is effectively the parent, but there can be multiple parents (two)
   // so this is only the parent of the thing we're currently processing.
   // It is conceptually the same as the return address of a stack frame.
+  // 指向Fiber节点数中的parent，用于处理完这个节点之后向上返回
   return: Fiber | null,
 
   // Singly Linked List Tree Structure.
+  // 单链表结构
+  // 指向自己的第一个子节点
   child: Fiber | null,
+  // 指向自己的兄弟结构
+  // 兄弟节点的return指向同一父节点
   sibling: Fiber | null,
   index: number,
 
@@ -171,13 +181,17 @@ export type Fiber = {|
   ref: null | (((handle: mixed) => void) & {_stringRef: ?string}) | RefObject,
 
   // Input is the data coming into process this fiber. Arguments. Props.
+  // 新的变动带来新的props
   pendingProps: any, // This type will be more specific once we overload the tag.
+  // 上一次渲染完成之后的props
   memoizedProps: any, // The props used to create the output.
 
   // A queue of state updates and callbacks.
+  // 该Fiber对应的组件产生的update会放在这个队列里面
   updateQueue: UpdateQueue<any> | null,
 
   // The state used to create the output
+  // 上次渲染时候的state
   memoizedState: any,
 
   // Dependencies (contexts, events) for this fiber, if it has any

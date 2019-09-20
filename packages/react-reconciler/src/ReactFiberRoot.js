@@ -41,10 +41,13 @@ type BaseFiberRootProperties = {|
   tag: RootTag,
 
   // Any additional information from the host associated with this root.
+  // root 节点，render方法接受的第二个参数
   containerInfo: any,
   // Used only by persistent updates.
+  // 只有在持久更新中会用到
   pendingChildren: any,
   // The currently active root fiber. This is the mutable root of the tree.
+  // 当前应用到的fibber对象
   current: Fiber,
 
   pingCache:

@@ -131,13 +131,13 @@ if (__DEV__) {
 }
 
 export type Hook = {
-  memoizedState: any,
+  memoizedState: any, //上一次的state
 
-  baseState: any,
-  baseUpdate: Update<any, any> | null,
-  queue: UpdateQueue<any, any> | null,
+  baseState: any, // 当前的state
+  baseUpdate: Update<any, any> | null, // update func
+  queue: UpdateQueue<any, any> | null, //用于混存多次action
 
-  next: Hook | null,
+  next: Hook | null, // 链表
 };
 
 type Effect = {
@@ -362,15 +362,16 @@ function areHookInputsEqual(
 }
 
 export function renderWithHooks(
-  current: Fiber | null,
+  current: Fiber | null, // 当前的fiber结构
   workInProgress: Fiber,
-  Component: any,
+  Component: any, // jsx中用<>调用的函数
   props: any,
   refOrContext: any,
-  nextRenderExpirationTime: ExpirationTime,
+  nextRenderExpirationTime: ExpirationTime, // 需要在什么时候结束
 ): any {
   renderExpirationTime = nextRenderExpirationTime;
   currentlyRenderingFiber = workInProgress;
+  // 从memoizedState中获取hooks
   nextCurrentHook = current !== null ? current.memoizedState : null;
 
   if (__DEV__) {
@@ -417,6 +418,7 @@ export function renderWithHooks(
       ReactCurrentDispatcher.current = HooksDispatcherOnMountInDEV;
     }
   } else {
+    //判断通过有没有hooks判断是mount还是update，两者的函数不同
     ReactCurrentDispatcher.current =
       nextCurrentHook === null
         ? HooksDispatcherOnMount

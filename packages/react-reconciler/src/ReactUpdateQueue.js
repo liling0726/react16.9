@@ -128,6 +128,7 @@ export type Update<State> = {
 };
 
 export type UpdateQueue<State> = {
+  // 每次更新操作完成后的state
   baseState: State,
 
   firstUpdate: Update<State> | null,
