@@ -4805,9 +4805,8 @@ eslint-plugin-no-unsafe-innerhtml@1.0.16:
   dependencies:
     eslint "^3.7.1"
 
-"eslint-plugin-react-internal@link:./scripts/eslint-rules":
+"eslint-plugin-react-internal@file:./scripts/eslint-rules":
   version "0.0.0"
-  uid ""
 
 eslint-plugin-react@^6.7.1:
   version "6.10.3"
@@ -12660,9 +12659,9 @@ typescript@~1.8.10:
   integrity sha1-tHXW4N/wv1DyluXKbvn7tccyDx4=
 
 ua-parser-js@^0.7.18, ua-parser-js@^0.7.9:
-  version "0.7.20"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.20.tgz#7527178b82f6a62a0f243d1f94fd30e3e3c21098"
-  integrity sha512-8OaIKfzL5cpx8eCMAhhvTlft8GYF8b2eQr6JkCyVdrgjcytyOmPCXrqXFcUnhonRpLlh5yxEZVohm6mzaowUOw==
+  version "0.7.28"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
+  integrity sha512-6Gurc1n//gjp9eQNXjD9O3M/sMwVtN5S8Lv9bvOYBfKfDNiIIhqiyi01vMBO45u4zkDE420w/e0se7Vs+sIg+g==
 
 uglify-js@^3.1.4:
   version "3.6.0"
